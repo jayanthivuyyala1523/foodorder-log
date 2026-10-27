@@ -1,140 +1,206 @@
-🍽️ Food Order Log
+# 🍽️ Food Order Log
 
-Track your cravings. Manage your orders. Keep your food expenses organized.
+### Track Your Food Orders. Manage Your Spending. Enjoy Every Bite.
 
-🍽️ Ready to explore?
+Food Order Log is a food-order management web application that helps users organize their food orders, track spending, categorize cuisines, and monitor delivery status through a clean and user-friendly interface.
 
-👉 "VISIT FOOD ORDER LOG" (https://foodorder-log.vercel.app/)
+🔴 **Live Demo:** https://foodorder-log-xi.vercel.app/
 
-🔗 🚀 Live Demo: "Open Food Order Log" (https://foodorder-log.vercel.app/)
-
-«Explore the live application and manage your food orders directly from your browser!»
+📂 **GitHub Repository:** https://github.com/jayanthivuyyala1523/foodorder-log
 
 ---
 
-🌟 About the Project
+## ✨ Features
 
-Food Order Log is a web application designed to help users record, organize, and manage their food orders in one place. It provides a simple, visually appealing interface for tracking restaurant orders, monitoring bills, and managing order details.
+- 🍕 **Food Menu** — Explore a curated selection of food items across multiple cuisines.
+- 📝 **Order Management** — Add new orders and update existing order details.
+- 🗑️ **Delete Orders** — Remove orders with a confirmation step.
+- 💰 **Spending Tracker** — View the combined bill amount for recorded orders.
+- 🍜 **Cuisine Filtering** — Organize orders by cuisine category.
+- ↕️ **Sorting Options** — Sort orders to make reviewing them easier.
+- 🚚 **Delivery Tracking** — Track whether an order has been delivered.
+- 📅 **Order Dates** — Record and review when orders were placed.
+- 📊 **Order Overview** — View your orders and spending information.
+- 📱 **Responsive Interface** — Designed for a convenient experience across different screen sizes.
+- 🔄 **Database Integration** — Store and retrieve order information using MongoDB.
 
-Whether you're ordering biryani, pizza, noodles, or desserts, Food Order Log helps you keep track of your food expenses effortlessly.
+## 🛠️ Tech Stack
 
-✨ Features
+| Technology | Purpose |
+|---|---|
+| React | Frontend user interface |
+| Vite | Development server and build tooling |
+| JavaScript | Application logic |
+| CSS | Styling and responsive layouts |
+| Node.js | Backend runtime |
+| Express.js | REST API |
+| MongoDB | Persistent order storage |
+| Mongoose | MongoDB object modeling |
+| Vercel | Frontend deployment |
 
-- 🍕 Food Menu: Explore a variety of dishes from different cuisines.
-- ➕ Add Orders: Record food orders with restaurant or dish name, bill amount, cuisine, delivery status, and order date.
-- ✏️ Edit Orders: Update existing order details whenever needed.
-- 🗑️ Delete Orders: Remove orders you no longer need.
-- 🔍 Cuisine Filtering: Filter orders based on cuisine.
-- 💰 Bill Sorting: Sort orders by bill amount.
-- 📊 Expense Overview: View order statistics and total spending.
-- 🖼️ Food Images: Enjoy a visual interface with food images.
-- 📱 Responsive Design: Access the application from supported desktop and mobile browsers.
-- ☁️ Online Deployment: Access the application through its public URL.
+## 🍽️ Cuisine Categories
 
-🚀 Try It Now
+The application includes a selection of food items from different culinary traditions:
 
-👉 "OPEN THE LIVE APPLICATION" (https://foodorder-log.vercel.app/)
+- 🇮🇳 Indian Biryani
+- 🥞 South Indian
+- 🍕 Italian & Pizza
+- 🍜 Chinese & Asian
+- 🌮 World Favorites
 
-No local installation is needed to explore the deployed website.
+## 🚀 Getting Started
 
-🛠️ Tech Stack
+Follow these steps to run the project locally.
 
-Technology| Purpose
-React| Frontend user interface
-Vite| Frontend development and build tool
-Node.js| Backend runtime
-Express.js| REST API
-MongoDB| Database for storing food orders
-Mongoose| MongoDB object modeling
-Vercel| Frontend deployment
-Render| Backend deployment
+### 1. Clone the repository
 
-🏗️ Project Architecture
-
-Food Order Log
-      |
-      v
-React + Vite Frontend
-      |
-      v
-Express.js REST API
-      |
-      v
-MongoDB Database
-
-The frontend communicates with the backend API to create, retrieve, update, and delete food orders.
-
-📂 Project Structure
-
-foodorder-log/
-├── backend/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── package.json
-│   └── server.js
-│
-└── frontend/
-    ├── src/
-    │   ├── App.jsx
-    │   ├── App.css
-    │   └── main.jsx
-    ├── index.html
-    └── package.json
-
-The directory structure may vary slightly depending on the current repository layout.
-
-⚙️ Run Locally
-
-Prerequisites
-
-- Node.js and npm
-- MongoDB or a MongoDB Atlas database
-- Git
-
-1. Clone the repository
-
-git clone https://github.com/vaishnavi-cse-ds/foodorder-log.git
+```bash
+git clone https://github.com/jayanthivuyyala1523/foodorder-log.git
 cd foodorder-log
+```
 
-2. Start the backend
+### 2. Install dependencies
 
-Open a terminal in the backend directory:
+```bash
+npm install
+```
 
+### 3. Configure environment variables
+
+Create the environment files required by your frontend and backend.
+
+For the Vite frontend, create a `.env` file in the project root:
+
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+For the backend, configure the MongoDB connection string using the environment variable expected by the backend:
+
+```env
+mongodb_url=your_mongodb_connection_string
+PORT=3000
+```
+
+Replace the example database connection string with your own MongoDB connection string. Never commit real credentials, database passwords, or API keys to GitHub.
+
+### 4. Start the frontend
+
+```bash
+npm run dev
+```
+
+Vite will display the local development URL in your terminal.
+
+### 5. Start the backend
+
+Run the backend from its directory after installing its required dependencies and configuring its environment variables.
+
+```bash
 cd backend
 npm install
-
-Configure the required environment variables, including your MongoDB connection string and port, using the variable names expected by your backend.
-
-Start the backend:
-
 node server.js
+```
 
-3. Start the frontend
+Ensure MongoDB is accessible and the backend is running before testing database-dependent features.
 
-Open another terminal in the frontend directory:
+## 🔌 API Endpoints
 
-cd frontend
-npm install
+The Express backend exposes REST endpoints for managing food orders.
 
-Create a ".env" file in the frontend directory with your local API address:
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/orders` | Retrieve orders |
+| GET | `/orders/total` | Calculate total spending |
+| GET | `/orders/:id` | Retrieve an order by ID |
+| POST | `/orders` | Create a new order |
+| PUT | `/orders/:id` | Update an existing order |
+| DELETE | `/orders/:id` | Delete an order |
 
-VITE_API_URL=http://localhost:3000
+### Query Parameters
 
-Start the development server:
+- `cuisine` — Filter orders by cuisine.
+- `sort=bill` — Sort orders by bill amount in ascending order.
 
-npm run dev
+By default, orders are sorted by order date, newest first.
 
-Open the local URL displayed in your terminal.
+## 🌐 Deployment
 
-Note: Never commit database credentials, API secrets, or ".env" files containing sensitive values to GitHub.
+**Live application:** https://foodorder-log-xi.vercel.app/
 
-🎯 Project Goals
+The frontend is deployed on Vercel. To deploy your own version, import the GitHub repository into Vercel and configure the appropriate build settings and environment variables.
 
-- Simplify food order tracking.
-- Help users monitor their food expenses.
-- Demonstrate full-stack web development.
-- Practice REST API integration and database operations.
-- Provide an accessible, user-friendly application.
+For production use, ensure that:
+
+- The backend API is deployed and publicly reachable over HTTPS.
+- `VITE_API_URL` points to the deployed API rather than `localhost`.
+- MongoDB connection credentials are configured securely on the backend.
+- CORS is configured to permit requests from the deployed frontend.
+- The database is accessible from the backend hosting environment.
+
+> Note: The frontend deployment and backend/database availability are separate. Confirm that the API and database are configured correctly for all features to work in production.
+
+## 📁 Project Structure
+
+```text
+foodorder-log/
+├── backend/
+│   └── server.js
+├── config/
+│   └── db.js
+├── controllers/
+│   └── orderscontroller.js
+├── middleware/
+│   └── errorhandler.js
+├── models/
+│   └── orders.js
+├── public/
+├── src/
+│   ├── assets/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+The repository also includes a Streamlit-based application file, `streamlitapp.py`, for a separate Streamlit interface.
+
+## 🔐 Security
+
+- Keep database credentials in environment variables or hosting secrets.
+- Exclude `.env` files from version control.
+- Never publish passwords, private API keys, or database connection strings.
+- Restrict database access and configure appropriate production security controls.
+
+## 🎯 Project Goals
+
+Food Order Log demonstrates practical full-stack development concepts, including:
+
+- Component-based frontend development.
+- RESTful API design.
+- CRUD operations.
+- Database integration.
+- Environment-based configuration.
+- Deployment and production setup.
+
+## 👩‍💻 Author
+
+**Vuyyala Jayanthi**
+
+GitHub: [@jayanthivuyyala1523](https://github.com/jayanthivuyyala1523)
+
+## 📄 License
+
+No license has been specified yet. Unless a license is added to this repository, reuse and redistribution are subject to the applicable copyright rules.
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
+
+**Try the application:** https://foodorder-log-xi.vercel.app/
+
+**Explore the source code:** https://github.com/jayanthivuyyala1523/foodorder-log
